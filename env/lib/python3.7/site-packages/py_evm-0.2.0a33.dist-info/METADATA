@@ -1,0 +1,321 @@
+Metadata-Version: 2.1
+Name: py-evm
+Version: 0.2.0a33
+Summary: Python implementation of the Ethereum Virtual Machine
+Home-page: https://github.com/ethereum/py-evm
+Author: Ethereum Foundation
+Author-email: piper@pipermerriam.com
+License: MIT
+Keywords: ethereum blockchain evm
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: p2p
+Provides-Extra: trinity
+Provides-Extra: benchmark
+Provides-Extra: eth-extra
+Provides-Extra: doc
+Provides-Extra: lint
+Provides-Extra: test
+Provides-Extra: eth
+Provides-Extra: dev
+Requires-Dist: cryptography (<3.0.0,>=2.0.3)
+Requires-Dist: cytoolz (<1.0.0,>=0.9.0)
+Requires-Dist: eth-bloom (<2.0.0,>=1.0.0)
+Requires-Dist: eth-keys (<1.0.0,>=0.2.0b3)
+Requires-Dist: eth-typing (<2.0.0,>=1.1.0)
+Requires-Dist: eth-utils (<2.0.0,>=1.2.0)
+Requires-Dist: lru-dict (>=1.1.6)
+Requires-Dist: py-ecc (<2.0.0,>=1.4.2)
+Requires-Dist: pyethash (<1.0.0,>=0.1.27)
+Requires-Dist: rlp (<2.0.0,>=1.0.3)
+Requires-Dist: trie (<2.0.0,>=1.3.5)
+Provides-Extra: benchmark
+Requires-Dist: termcolor (<2.0.0,>=1.1.0); extra == 'benchmark'
+Requires-Dist: web3 (<5.0.0,>=4.1.0); extra == 'benchmark'
+Provides-Extra: dev
+Requires-Dist: bumpversion (<1,>=0.5.3); extra == 'dev'
+Requires-Dist: wheel; extra == 'dev'
+Requires-Dist: setuptools (>=36.2.0); extra == 'dev'
+Requires-Dist: tox (==2.7.0); extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Requires-Dist: cryptography (<3.0.0,>=2.0.3); extra == 'dev'
+Requires-Dist: cytoolz (<1.0.0,>=0.9.0); extra == 'dev'
+Requires-Dist: eth-bloom (<2.0.0,>=1.0.0); extra == 'dev'
+Requires-Dist: eth-keys (<1.0.0,>=0.2.0b3); extra == 'dev'
+Requires-Dist: eth-typing (<2.0.0,>=1.1.0); extra == 'dev'
+Requires-Dist: eth-utils (<2.0.0,>=1.2.0); extra == 'dev'
+Requires-Dist: lru-dict (>=1.1.6); extra == 'dev'
+Requires-Dist: py-ecc (<2.0.0,>=1.4.2); extra == 'dev'
+Requires-Dist: pyethash (<1.0.0,>=0.1.27); extra == 'dev'
+Requires-Dist: rlp (<2.0.0,>=1.0.3); extra == 'dev'
+Requires-Dist: trie (<2.0.0,>=1.3.5); extra == 'dev'
+Requires-Dist: coincurve (<9.0.0,>=8.0.0); extra == 'dev'
+Requires-Dist: plyvel (==1.0.5); extra == 'dev'
+Requires-Dist: asyncio-cancel-token (==0.1.0a2); extra == 'dev'
+Requires-Dist: async-lru (<1.0.0,>=0.1.0); extra == 'dev'
+Requires-Dist: eth-hash (<1,>=0.1.4); extra == 'dev'
+Requires-Dist: netifaces (>=0.10.7<1); extra == 'dev'
+Requires-Dist: pysha3 (<2.0.0,>=1.0.0); extra == 'dev'
+Requires-Dist: upnpclient (<1,>=0.0.8); extra == 'dev'
+Requires-Dist: async-generator (==1.10); extra == 'dev'
+Requires-Dist: bloom-filter (==1.3); extra == 'dev'
+Requires-Dist: cachetools (<3.0.0,>=2.1.0); extra == 'dev'
+Requires-Dist: coincurve (<9.0.0,>=8.0.0); extra == 'dev'
+Requires-Dist: ipython (<7.0.0,>=6.2.1); extra == 'dev'
+Requires-Dist: plyvel (==1.0.5); extra == 'dev'
+Requires-Dist: web3 (==4.4.1); extra == 'dev'
+Requires-Dist: lahja (==0.8.0); extra == 'dev'
+Requires-Dist: hypothesis (==3.69.5); extra == 'dev'
+Requires-Dist: pytest (<3.7,>=3.6); extra == 'dev'
+Requires-Dist: pytest-asyncio (==0.9.0); extra == 'dev'
+Requires-Dist: pytest-cov (==2.5.1); extra == 'dev'
+Requires-Dist: pytest-watch (<5,>=4.1.0); extra == 'dev'
+Requires-Dist: pytest-xdist (==1.18.1); extra == 'dev'
+Requires-Dist: py-evm (>=0.2.0-alpha.14); extra == 'dev'
+Requires-Dist: pytest (~=3.2); extra == 'dev'
+Requires-Dist: Sphinx (<1.8.0,>=1.5.5); extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (>=0.1.9); extra == 'dev'
+Requires-Dist: sphinxcontrib-asyncio (>=0.2.0); extra == 'dev'
+Requires-Dist: flake8 (==3.5.0); extra == 'dev'
+Requires-Dist: mypy (==0.620); extra == 'dev'
+Provides-Extra: dev
+Requires-Dist: eth-hash[pysha3]; (implementation_name == "cpython") and extra == 'dev'
+Provides-Extra: dev
+Requires-Dist: eth-hash[pycryptodome]; (implementation_name == "pypy") and extra == 'dev'
+Provides-Extra: dev
+Requires-Dist: uvloop (==0.11.2); (platform_system == "Linux" or platform_system == "Darwin") and extra == 'dev'
+Provides-Extra: dev
+Requires-Dist: pytest-asyncio-network-simulator (==0.1.0a2); (python_version >= "3.6") and extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: py-evm (>=0.2.0-alpha.14); extra == 'doc'
+Requires-Dist: pytest (~=3.2); extra == 'doc'
+Requires-Dist: Sphinx (<1.8.0,>=1.5.5); extra == 'doc'
+Requires-Dist: sphinx-rtd-theme (>=0.1.9); extra == 'doc'
+Requires-Dist: sphinxcontrib-asyncio (>=0.2.0); extra == 'doc'
+Provides-Extra: eth
+Requires-Dist: cryptography (<3.0.0,>=2.0.3); extra == 'eth'
+Requires-Dist: cytoolz (<1.0.0,>=0.9.0); extra == 'eth'
+Requires-Dist: eth-bloom (<2.0.0,>=1.0.0); extra == 'eth'
+Requires-Dist: eth-keys (<1.0.0,>=0.2.0b3); extra == 'eth'
+Requires-Dist: eth-typing (<2.0.0,>=1.1.0); extra == 'eth'
+Requires-Dist: eth-utils (<2.0.0,>=1.2.0); extra == 'eth'
+Requires-Dist: lru-dict (>=1.1.6); extra == 'eth'
+Requires-Dist: py-ecc (<2.0.0,>=1.4.2); extra == 'eth'
+Requires-Dist: pyethash (<1.0.0,>=0.1.27); extra == 'eth'
+Requires-Dist: rlp (<2.0.0,>=1.0.3); extra == 'eth'
+Requires-Dist: trie (<2.0.0,>=1.3.5); extra == 'eth'
+Provides-Extra: eth-extra
+Requires-Dist: coincurve (<9.0.0,>=8.0.0); extra == 'eth-extra'
+Requires-Dist: plyvel (==1.0.5); extra == 'eth-extra'
+Provides-Extra: eth-extra
+Requires-Dist: eth-hash[pysha3]; (implementation_name == "cpython") and extra == 'eth-extra'
+Provides-Extra: eth-extra
+Requires-Dist: eth-hash[pycryptodome]; (implementation_name == "pypy") and extra == 'eth-extra'
+Provides-Extra: lint
+Requires-Dist: flake8 (==3.5.0); extra == 'lint'
+Requires-Dist: mypy (==0.620); extra == 'lint'
+Provides-Extra: p2p
+Requires-Dist: asyncio-cancel-token (==0.1.0a2); extra == 'p2p'
+Requires-Dist: async-lru (<1.0.0,>=0.1.0); extra == 'p2p'
+Requires-Dist: eth-hash (<1,>=0.1.4); extra == 'p2p'
+Requires-Dist: netifaces (>=0.10.7<1); extra == 'p2p'
+Requires-Dist: pysha3 (<2.0.0,>=1.0.0); extra == 'p2p'
+Requires-Dist: upnpclient (<1,>=0.0.8); extra == 'p2p'
+Provides-Extra: test
+Requires-Dist: hypothesis (==3.69.5); extra == 'test'
+Requires-Dist: pytest (<3.7,>=3.6); extra == 'test'
+Requires-Dist: pytest-asyncio (==0.9.0); extra == 'test'
+Requires-Dist: pytest-cov (==2.5.1); extra == 'test'
+Requires-Dist: pytest-watch (<5,>=4.1.0); extra == 'test'
+Requires-Dist: pytest-xdist (==1.18.1); extra == 'test'
+Provides-Extra: test
+Requires-Dist: pytest-asyncio-network-simulator (==0.1.0a2); (python_version >= "3.6") and extra == 'test'
+Provides-Extra: trinity
+Requires-Dist: async-generator (==1.10); extra == 'trinity'
+Requires-Dist: bloom-filter (==1.3); extra == 'trinity'
+Requires-Dist: cachetools (<3.0.0,>=2.1.0); extra == 'trinity'
+Requires-Dist: coincurve (<9.0.0,>=8.0.0); extra == 'trinity'
+Requires-Dist: ipython (<7.0.0,>=6.2.1); extra == 'trinity'
+Requires-Dist: plyvel (==1.0.5); extra == 'trinity'
+Requires-Dist: web3 (==4.4.1); extra == 'trinity'
+Requires-Dist: lahja (==0.8.0); extra == 'trinity'
+Provides-Extra: trinity
+Requires-Dist: uvloop (==0.11.2); (platform_system == "Linux" or platform_system == "Darwin") and extra == 'trinity'
+
+Python Implementation of the EVM
+================================
+
+|Join the chat at https://gitter.im/ethereum/py-evm| |Documentation
+Status|
+
+`Documentation hosted by
+ReadTheDocs <http://py-evm.readthedocs.io/en/latest/>`__
+
+Introducing Py-EVM
+------------------
+
+Py-EVM is a new implementation of the Ethereum Virtual Machine written
+in python. It is currently in active development but is quickly
+progressing through the test suite provided by ethereum/tests. We have
+Vitalik, and the existing PyEthereum code to thank for the quick
+progress we’ve made as many design decisions were inspired, or even
+directly ported from the PyEthereum codebase.
+
+Goals
+~~~~~
+
+Py-EVM aims to eventually become the defacto Python implementation of
+the EVM, enabling a wide array of use cases for both public and private
+chains. Development will focus on creating an EVM with a well defined
+API, friendly and easy to digest documentation which can be run as a
+fully functional mainnet node.
+
+In particular Py-EVM aims to:
+
+-  be an example implementation of the EVM in one of the most widely
+   used and understood languages, Python.
+
+-  deliver the low level APIs for clients to build full or light nodes
+   on top of
+
+-  be easy to understand and modifiable
+
+-  be highly flexible to support both research as well as alternate use
+   cases like private chains.
+
+Trinity
+~~~~~~~
+
+While Py-EVM provides the low level APIs of the EVM, it does not aim to
+implement a full or light node directly.
+
+We provide a base implementation of a full node called Trinity that is
+based on Py-EVM.
+
+In the future there may be alternative clients based on the Py-EVM.
+
+Step 1: Alpha Release
+~~~~~~~~~~~~~~~~~~~~~
+
+The plan is to begin with an MVP, alpha-level release that is suitable
+for testing purposes. We’ll be looking for early adopters to provide
+feedback on our architecture and API choices as well as general feedback
+and bug finding.
+
+Blog posts:
+^^^^^^^^^^^
+
+-  https://medium.com/@pipermerriam/py-evm-part-1-origins-25d9ad390b
+
+Development
+-----------
+
+Py-EVM depends on a submodule of the common tests across all clients, so
+you need to clone the repo with the ``--recursive`` flag. Example:
+
+.. code:: sh
+
+    git clone --recursive git@github.com:ethereum/py-evm.git
+
+Py-EVM requires Python 3. Often, the best way to guarantee a clean
+Python 3 environment is with
+```virtualenv`` <https://virtualenv.pypa.io/en/stable/>`__, like:
+
+.. code:: sh
+
+    # once:
+    $ virtualenv -p python3 venv
+
+    # each session:
+    $ . venv/bin/activate
+
+Then install the required python packages via:
+
+.. code:: sh
+
+    pip install -e .[dev]
+
+Running the tests
+~~~~~~~~~~~~~~~~~
+
+You can run the tests with:
+
+.. code:: sh
+
+    pytest
+
+Or you can install ``tox`` to run the full test suite.
+
+Releasing
+~~~~~~~~~
+
+Pandoc is required for transforming the markdown README to the proper
+format to render correctly on pypi.
+
+For Debian-like systems:
+
+::
+
+    apt install pandoc
+
+Or on OSX:
+
+.. code:: sh
+
+    brew install pandoc
+
+To release a new version:
+
+.. code:: sh
+
+    bumpversion $$VERSION_PART_TO_BUMP$$
+    git push && git push --tags
+    make release
+
+To create a docker image:
+
+.. code:: sh
+
+    make create-docker-image version=<version>
+
+By default, this will create a new image with two tags pointing to it: -
+``ethereum/trinity:<version>`` (explicit version) -
+``ethereum/trinity:latest`` (latest until overwritten with a future
+"latest")
+
+Then, push to docker hub.
+
+.. code:: sh
+
+    docker push ethereum/trinity:<version>
+    # the following may be left out if we were pushing a patch for an older version
+    docker push ethereum/trinity:latest
+
+How to bumpversion
+^^^^^^^^^^^^^^^^^^
+
+The version format for this repo is ``{major}.{minor}.{patch}`` for
+stable, and ``{major}.{minor}.{patch}-{stage}.{devnum}`` for unstable
+(``stage`` can be alpha or beta).
+
+To issue the next version in line, use bumpversion and specify which
+part to bump, like ``bumpversion minor`` or ``bumpversion devnum``.
+
+If you are in a beta version, ``bumpversion stage`` will switch to a
+stable.
+
+To issue an unstable version when the current version is stable, specify
+the new version explicitly, like
+``bumpversion --new-version 4.0.0-alpha.1 devnum``
+
+.. |Join the chat at https://gitter.im/ethereum/py-evm| image:: https://badges.gitter.im/ethereum/py-evm.svg
+   :target: https://gitter.im/ethereum/py-evm
+.. |Documentation Status| image:: https://readthedocs.org/projects/py-evm/badge/?version=latest
+   :target: http://py-evm.readthedocs.io/en/latest/?badge=latest
+
+
