@@ -7,7 +7,6 @@ ListReserved: event({list_id: indexed(uint256), owner: indexed(address)})
 ValueChanged: event({list_id: indexed(uint256), idx: indexed(uint256), val: indexed(uint256)})
 
 # Globals
-MAXVAL: constant(uint256) = 2**255
 maxLs: public(uint256)
 lists: map(uint256, map(uint256, uint256))
 owners: map(uint256, address)
@@ -65,7 +64,7 @@ def remove(_ls: uint256, _idx: uint256):
     assert self.currMaxes[_ls] > 0
     assert self.currMaxes[_ls] > _idx
     i: uint256
-    for not_i in range(MAXVAL):
+    for not_i in range(MAX_UINT256):
         i = convert(not_i, uint256)
         if i == self.currMaxes[_ls]:
             self.currMaxes[_ls] -= 1

@@ -1,5 +1,6 @@
 # Vyper Dynamic Arrays
-Library for dynamic arrays in Vyper.
+
+Library for dynamic arrays in Vyper
 
 ## Installation
 
@@ -27,3 +28,11 @@ pip install -r requirements.txt
 ```
 $ pytest -v tests/
 ```
+
+## Updating
+
+Run `getCodes.sh` to automatically generate bytecode and abi within current file structure
+
+## License
+
+MIT
